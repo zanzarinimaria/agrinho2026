@@ -1,3 +1,181 @@
-p {
-    color: rgb(27, 27, 133); /* Deixa todos os parágrafos azuis */
+/* VARIÁVEIS DE CORES */
+:root {
+    /* PALETA PADRÃO: ESCURA CONFORTÁVEL (Azul Petróleo e Amarelo Âmbar) */
+    --cor-fundo-geral: #111e29;     /* Azul petróleo bem escuro (confortável para a noite/dia) */
+    --cor-fundo-card: #1b2d3c;      /* Azul um pouco mais claro para destacar os blocos */
+    
+    --cor-texto-claro: #e2e8f0;     /* Texto cinza claro/gelo, evita o ofuscamento do branco puro */
+    --cor-texto-escuro: #f59e0b;    /* Amarelo âmbar para títulos secundários */
+    --cor-destaque: #fbbf24;        /* Amarelo ouro/morno para títulos principais */
+
+    /* BOTÕES E BORDAS */
+    --cor-botao-fundo: #0369a1;     /* Azul oceano firme */
+    --cor-botao-texto: #fbbf24;     /* Texto amarelo no botão */
+    --cor-borda: #fbbf24;           /* Borda amarela sutil para acabamento */
+}
+
+/* MODO ALTO CONTRASTE (Para acessibilidade extrema) */ 
+body.alto-contraste {
+    --cor-fundo-geral: #000000;     /* Preto absoluto */
+    --cor-fundo-card: #0b131a;      /* Quase preto */
+
+    --cor-texto-claro: #ffffff;     /* Branco puro */
+    --cor-texto-escuro: #fef08a;    /* Amarelo bem claro */
+    --cor-destaque: #fef08a;        /* Amarelo brilhante */
+    
+    --cor-botao-fundo: #ffffff;     /* Botão branco */
+    --cor-botao-texto: #000000;     /* Texto preto no botão */ 
+
+    --cor-borda: #ffffff;           
+}
+
+/* CONFIGURAÇÕES GERAIS */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--cor-fundo-geral);
+    color: var(--cor-texto-claro);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+header {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--cor-fundo-card);
+    border-bottom: 3px solid var(--cor-borda);
+}
+
+/* Logo do site */
+.logo-site {
+    max-width: 400px;       
+    height: auto;           
+    border-radius: 50%;     
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); 
+    margin-bottom: 2px;    
+    transition: transform 0.3s ease, filter 0.3s ease; 
+    display: block;         
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo-site:hover {
+    transform: scale(1.05); 
+}
+
+/* Ajuste visual da logo no modo escuro/alto contraste */
+body.alto-contraste .logo-site {
+    border: 2px solid var(--cor-borda); 
+    filter: brightness(0.9);            
+}
+
+header h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--cor-destaque);
+}
+
+header h2 {
+    font-size: 1rem;
+    color: var(--cor-texto-claro);
+}
+
+.autores {
+    color: var(--cor-destaque);
+    font-weight: bold;
+}
+
+/* MENU DE NAVEGAÇÃO */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+.menu button {
+    padding: 12px 20px;
+    border: 2px solid var(--cor-borda);
+    background-color: var(--cor-botao-fundo);
+    color: var(--cor-botao-texto);
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.menu button:hover {
+    transform: scale(1.05);
+    background-color: var(--cor-botao-texto);
+    color: #111e29; /* Inverte com a cor escura de fundo */
+}
+
+/* PÁGINAS */
+.pagina {
+    display: none;
+}
+
+.ativa {
+    display: block;
+}
+
+/* POSTS */
+main {
+    width: 100%; 
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    flex: 1; 
+}
+
+.post {
+    background-color: var(--cor-fundo-card);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.post h2 {
+    color: var(--cor-destaque);
+    border-bottom: 2px solid var(--cor-borda);
+    padding-bottom: 10px;
+}
+
+.post p {
+    line-height: 1.6;
+}
+
+/* RODAPÉ */
+footer {
+    text-align: center;
+    padding: 10px 20px;
+    background-color: var(--cor-fundo-card);
+    border-top: 3px solid var(--cor-borda);
+}
+
+/* BOTÃO DE ACESSIBILIDADE */
+.acessibilidade-container {
+    text-align: right;
+}
+
+.btn-util {
+    width: auto !important;
+    padding: 8px 12px !important;
+    background-color: var(--cor-botao-fundo) !important; 
+    color: var(--cor-botao-texto) !important;            
+    border: 2px solid var(--cor-borda) !important;       
+    cursor: pointer;                                     
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/* RESPONSIVIDADE */
+@media(max-width: 600px){
+    .menu {
+        flex-direction: column;
+    }
 }
